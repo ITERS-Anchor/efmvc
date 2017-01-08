@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbtestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ClassInfo">
+    <Key>
+      <PropertyRef Name="cId" />
+    </Key>
+    <Property Name="cId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cTitle" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="StudentInfo">
+    <Key>
+      <PropertyRef Name="sId" />
+    </Key>
+    <Property Name="sId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sName" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="sGender" Type="bit" />
+    <Property Name="sBirthday" Type="date" />
+    <Property Name="sPhone" Type="char" MaxLength="11" />
+    <Property Name="sEMail" Type="varchar" MaxLength="20" />
+    <Property Name="cid" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__StudentInfo__cid__403A8C7D">
+    <End Role="ClassInfo" Type="Self.ClassInfo" Multiplicity="1" />
+    <End Role="StudentInfo" Type="Self.StudentInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClassInfo">
+        <PropertyRef Name="cId" />
+      </Principal>
+      <Dependent Role="StudentInfo">
+        <PropertyRef Name="cid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dbtestModelStoreContainer">
+    <EntitySet Name="ClassInfo" EntityType="Self.ClassInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentInfo" EntityType="Self.StudentInfo" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__StudentInfo__cid__403A8C7D" Association="Self.FK__StudentInfo__cid__403A8C7D">
+      <End Role="ClassInfo" EntitySet="ClassInfo" />
+      <End Role="StudentInfo" EntitySet="StudentInfo" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

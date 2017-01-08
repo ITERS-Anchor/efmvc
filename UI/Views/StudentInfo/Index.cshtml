@@ -1,0 +1,84 @@
+﻿@model IQueryable<Model.StudentInfo>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>   
+    <link href="~/CSS/PageBar.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript">      
+        $(function() {
+            LoadList(1);
+        });
+        function LoadList(pageIndex) {
+            //Ajax
+            $.getJSON('@Url.Action("LoadPageList", "StudentInfo")', { pageSize: 5, pageIndex: pageIndex }, function (data) {
+                var list = $('#list');
+                list.empty();
+                $.each(data.myList, function(index,value) {
+                    list.append('<tr><td>' + value.Id + '</td><td>' + value.Name + '</td><td>' + value.Gender + '</td><td>' + ChangeDateFormat(value.DOB) + '</td><td>' + value.Phone + '</td><td>' + value.Email + '</td><td>' + value.Class + '</td></tr>');
+                });
+                $('#showPageBar ul').html(data.myPageBar);
+                bindPageBarClickEvent();
+            });
+        }
+
+        function bindPageBarClickEvent() {
+            $(".pgbar").click(function () {
+                var pageIndex = $(this).attr("href").split('=')[1];
+                //$("#tabList tr:gt(0)").remove();
+                //$('#list').empty();
+                LoadList(pageIndex);
+                return false;
+            });
+        }
+        function ChangeDateFormat(cellval) {
+            var date = new Date(parseInt(cellval.replace("/Date(", "").replace(")/", ""), 10));
+            //getMonth()从0开始算
+            var month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
+            var currentDate = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+            return date.getFullYear() + "-" + month + "-" + currentDate;
+        }
+    </script>
+</head>
+<body>
+    <div> 
+        @Html.ActionLink("Add New", "Add", "StudentInfo")
+        <table border="1" id="tabList">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>DOB</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Class</th>
+            </tr>
+            <tbody id="list">
+
+            </tbody>
+              
+            @*@foreach (var s in Model)
+            {
+                <tr>
+                    <td>@s.sId</td>
+                    <td>@s.sName</td>
+                    <td>@s.sGender</td>
+                    <td>@s.sBirthday.ToShortDateString()</td>
+                    <td>@s.sPhone</td>
+                    <td>@s.sEMail</td>
+                    <td>@s.ClassInfo.cTitle</td>
+                </tr>
+            }*@
+        </table>
+        <div id="showPageBar" class="center">
+            <ul class="pagination"></ul>
+        </div> 
+    </div>
+</body>
+</html>

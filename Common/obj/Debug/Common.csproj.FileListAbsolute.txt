@@ -1,0 +1,9 @@
+C:\.Net learning\EF+MVC\Common\bin\Debug\Common.dll
+C:\.Net learning\EF+MVC\Common\bin\Debug\Common.pdb
+C:\.Net learning\EF+MVC\Common\obj\Debug\Common.dll
+C:\.Net learning\EF+MVC\Common\obj\Debug\Common.pdb
+C:\.Net learning\EF+MVC\Common\bin\Debug\Model.dll
+C:\.Net learning\EF+MVC\Common\bin\Debug\EntityFramework.dll
+C:\.Net learning\EF+MVC\Common\bin\Debug\Model.pdb
+C:\.Net learning\EF+MVC\Common\bin\Debug\EntityFramework.xml
+C:\.Net learning\EF+MVC\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache

@@ -1,0 +1,42 @@
+﻿@model Model.StudentInfo
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add</title>
+    <link href="~/CSS/jquery-ui.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <script type="text/javascript">
+       $(function () {
+            $("#birth_date").datepicker();
+        });
+    </script>
+</head>
+<body>
+    <div> 
+        @using (Html.BeginForm("Add","StudentInfo",FormMethod.Post))
+        {
+            
+            <span>Name:</span> @Html.TextBoxFor(s=>s.sName)<br />
+            
+            <span>Gender:</span> @Html.RadioButtonFor(s => s.sGender, false)
+            <label for="female">Female</label>
+            @Html.RadioButtonFor(s => s.sGender, true)
+            <label for="male">Male</label><br />
+            <span>DOB:</span> @Html.TextBoxFor(s => s.sBirthday,new { id = "birth_date" })
+            <br /> 
+            <span>Phone:</span>@Html.TextBoxFor(s => s.sPhone)<br />
+            <span>Email:</span>@Html.TextBoxFor(s => s.sEMail)<br />
+            <span>Class:</span>@Html.DropDownListFor(s => s.cid, (IEnumerable<SelectListItem>)ViewBag.ClassList, "--Select Class--")<br />
+            
+            <input type="submit" value="Add" />
+        }
+    </div>
+</body>
+</html>

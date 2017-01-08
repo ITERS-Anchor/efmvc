@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbtestModelStoreContainer" CdmEntityContainer="MyContext">
+    <EntitySetMapping Name="ClassInfoes">
+      <EntityTypeMapping TypeName="dbtestModel.ClassInfo">
+        <MappingFragment StoreEntitySet="ClassInfo">
+          <ScalarProperty Name="cId" ColumnName="cId" />
+          <ScalarProperty Name="cTitle" ColumnName="cTitle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentInfoes">
+      <EntityTypeMapping TypeName="dbtestModel.StudentInfo">
+        <MappingFragment StoreEntitySet="StudentInfo">
+          <ScalarProperty Name="sId" ColumnName="sId" />
+          <ScalarProperty Name="sName" ColumnName="sName" />
+          <ScalarProperty Name="sGender" ColumnName="sGender" />
+          <ScalarProperty Name="sBirthday" ColumnName="sBirthday" />
+          <ScalarProperty Name="sPhone" ColumnName="sPhone" />
+          <ScalarProperty Name="sEMail" ColumnName="sEMail" />
+          <ScalarProperty Name="cid" ColumnName="cid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

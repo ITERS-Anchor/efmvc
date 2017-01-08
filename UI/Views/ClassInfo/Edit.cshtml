@@ -1,0 +1,23 @@
+﻿@model Model.ClassInfo
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+    <div> 
+        @using (Html.BeginForm("Edit", "ClassInfo", FormMethod.Post))
+        {
+            <label>Class Name:</label>@Html.TextBoxFor(c => c.cTitle)<br />
+            @Html.HiddenFor(c => c.cId)
+            <input type="submit" value="Edit" />
+        }
+    </div>
+</body>
+</html>

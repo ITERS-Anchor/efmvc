@@ -1,0 +1,9 @@
+C:\.Net learning\EF+MVC\DAL\bin\Debug\DAL.dll
+C:\.Net learning\EF+MVC\DAL\bin\Debug\DAL.pdb
+C:\.Net learning\EF+MVC\DAL\obj\Debug\DAL.dll
+C:\.Net learning\EF+MVC\DAL\obj\Debug\DAL.pdb
+C:\.Net learning\EF+MVC\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\.Net learning\EF+MVC\DAL\bin\Debug\EntityFramework.dll
+C:\.Net learning\EF+MVC\DAL\bin\Debug\Model.dll
+C:\.Net learning\EF+MVC\DAL\bin\Debug\Model.pdb
+C:\.Net learning\EF+MVC\DAL\bin\Debug\EntityFramework.xml
